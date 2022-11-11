@@ -1,12 +1,40 @@
 import React, { useState } from 'react';
-import { StyleSheet, Button, Text, Image, TextInput, View } from 'react-native';
+import { StyleSheet, Button, Text, Image, TextInput, View, TextComponent } from 'react-native';
 
 export default function Ejercicio10() {
-  const [Edad, setEdad] = useState(0);
-  const [text, settext] = useState(null);
+  const [edad, setEdad] = useState(0);
+  const [text, setText] = useState(null);
+  const [color, setColor] = useState(null);
+
+
+  function MeterEdad() {
+    if (edad < 18) {
+      setText('¡Eres un yogurin!')
+      setColor('blue')
+    }
+    else if (edad == 18) {
+      setText('¡A gastar el cheque de 400 pavos en videojuegos!')
+      setColor('green')
+    }
+    else {
+      setText('¡A trabajar!')
+      setColor('red')
+    }
+  }
+
+  function VerificarNumero(numero) {
+    //const regex = /^[ÇçÑñáéíóúÁÉÍÓÚA.-Za-z0-9 ]+$/;
+    const regex = /^[.a-zA-Z]+$/
+    if (!numero.match(regex)) {
+      { MeterEdad() }
+    } else {
+      setText("Mete un número miarma...")
+      setColor("red")
+    }
+  }
+
 
   return (
-
     <View>
       <Text style={{ color: 'black', paddingTop: 40, textAlign: 'center' }}>
         <Text>Hola mi nombre es </Text>
@@ -25,19 +53,18 @@ export default function Ejercicio10() {
 
 
         }}
+
         placeholder="Edad"
-        onChangeText={Edad => setEdad(Edad)}
+        onChangeText={edad => setEdad(edad)}
       />
+
       <View style={{ margin: 78 }}>
         <Button title='Finalizar'
-          onPress={Edad === null ?
-            (text) => settext('null') :
-            Edad < 18 ? (text) => settext(<Text style={{ color: 'green' }} >¡Eres un yogurin!</Text>) :
-              Edad > 19 ? (text) => settext(<Text style={{ color: 'red' }}>¡A trabajar!</Text>) :
-                (text) => settext(<Text style={{ color: 'blue' }}>¡Disfruta el cheque de 400 pavos en videojuegos!</Text>)}
+          onPress={() => { VerificarNumero(edad); MeterEdad }}
         />
+
       </View>
-      <Text style={{ textAlign: 'center' }}>{text}</Text>
+      <Text style={{ textAlign: 'center', color: color }}>{text}</Text>
       <Text style={{ marginLeft: 95, paddingTop: 40, color: 'black' }}>Gracias por rellenar el formulario.</Text>
     </View>
   )
