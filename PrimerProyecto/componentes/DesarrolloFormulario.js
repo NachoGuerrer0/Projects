@@ -16,7 +16,7 @@ export default function DesarrolloFormulario() {
         const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
 
         if (!edad.match(regex) && !correo.text === true && Object.keys(edad).length != 0 && Object.keys(correo).length != 0) {
-            setText('Mi nombre es ' + nombre + ' con edad ' + edad + ' , y correo ' + correo + ' y sexo ' + sexo);
+            setText('Mi nombre es ' + nombre +' '+apellidos+ ' con edad ' + edad + ' , y correo ' + correo + ' y sexo ' + (isEnabled?'Femenino':'Masculino'));
 
         } else {
             setText('Edad o correo incorrecto')
@@ -54,7 +54,7 @@ export default function DesarrolloFormulario() {
                         borderWidth: 1
                     }}
                     placeholder=" Apellidos"
-                    onChangeText={apellidos => setApellidos(apellidos)}
+                    onChangeText={() => setApellidos(apellidos)}
                 />
             </View>
             <View style={{ flexDirection: 'row' }}>
@@ -111,7 +111,7 @@ export default function DesarrolloFormulario() {
                         alignItems: 'center'
                     }}
                     source={{
-                        uri: 'https://pbs.twimg.com/profile_images/482602104712749056/RND9ApuW_400x400.jpeg'
+                        uri: isEnabled? 'https://pyxis.nymag.com/v1/imgs/a3f/a42/21ee9441b186d58086039a8c833d84b697-30-patty-selma.w710.jpg':'https://pbs.twimg.com/profile_images/482602104712749056/RND9ApuW_400x400.jpeg'
                     }}
                     />
             </View>
