@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Button, Text, Image, TextInput, View, TextComponent,FlatList,ScrollView } from 'react-native';
 
 export default function Ejercicio15() {
+    icono:<MaterialCommunityIcons name="account-circle" size={60} color="blue" />
     const DATA = [
         {
             id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
