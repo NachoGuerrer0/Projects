@@ -32,7 +32,7 @@ export default function InsertarFrutasScreen() {
     };
 
 
-    return fetch("http://192.168.1.136:8080/fruits", data)
+    return fetch("http://10.88.3.231:8080/fruits", data)
   }
   return (
     <ScrollView>

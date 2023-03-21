@@ -15,7 +15,7 @@ export default function MercadoScreen() {
     wait(2000).then(() => setRefreshing(false));
   }, []);
   useEffect(() => {
-    fetch("http://192.168.1.136:8080/fruits")
+    fetch("http://10.88.3.231:8080/fruits")
       .then(response => response.json())
       .then((responseJson) => {
         console.log('getting data from fetch', responseJson);
